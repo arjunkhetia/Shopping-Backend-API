@@ -19,7 +19,7 @@ var MongoDBClient = new MongoClient(URI, option);
 module.exports.connect = () => new Promise((resolve, reject) => {
     MongoDBClient.connect(function(err, client) {
         if (err) { reject(err); return; };
-        var db = client.db('mongodb');
+        var db = client.db('shopping-api');
         resolve(db);
         connection = db;
     });

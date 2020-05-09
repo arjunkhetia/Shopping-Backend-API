@@ -20,6 +20,9 @@ var routes = require('./routes');
 // Generating an express app
 var app = express();
 
+// Swagger Integration
+var expressSwagger = require('express-swagger-generator')(app);
+
 // Express Status Monitor for monitoring server status
 app.use(require('express-status-monitor')({
   title: 'Server Status',
@@ -50,6 +53,28 @@ app.use(require('express-status-monitor')({
     port: '3000'
   }]
 }));
+
+// Swagger Config
+let options = {
+  swaggerDefinition: {
+    info: {
+      description: 'This is a swagger server for API Documentation',
+      title: 'Shopping-API-Server',
+      version: '1.0.0',
+    },
+    host: 'localhost:3000',
+    basePath: '/',
+    produces: [
+      "application/json",
+      "application/xml"
+    ],
+    schemes: ['http', 'https'],
+  },
+  basedir: __dirname, //app absolute path
+  files: ['./routes/**/*.js'] //Path to the API handle folder
+};
+
+expressSwagger(options);
 
 // compress all responses
 app.use(compression());
