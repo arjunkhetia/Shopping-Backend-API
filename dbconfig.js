@@ -5,8 +5,6 @@ var URI = "mongodb://localhost:27017";
 var connection = null;
 
 var option = {
-  reconnectTries : 5,
-  reconnectInterval: 1000,
   keepAlive: true,
   poolSize : 10,
   connectTimeoutMS: 5000,

@@ -5,12 +5,7 @@ var ObjectId = require('mongodb').ObjectID;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  db.get().collection('offer')
-  .find({})
-  .toArray(function(err, result) {
-      if(err) throw err;
-      res.render('index', { title: 'Express', data: JSON.stringify(result, null, 4) });
-  });
+  res.send('Shopping Server API');
 });
 
 module.exports = router;
