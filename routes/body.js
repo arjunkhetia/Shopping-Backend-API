@@ -38,6 +38,8 @@ router.get('/', async (req, res, next) => {
         .find({})
         .toArray(function (err, result) {
           if (err) callback(err);
+          result[0]['advertisement'][0]['message'] = result[0]['advertisement'][0]['message'][lang];
+          result[0]['advertisement'][1]['message'] = result[0]['advertisement'][1]['message'][lang];
           finalResult.push({"advertise": result});
           callback(null, finalResult);
         });
