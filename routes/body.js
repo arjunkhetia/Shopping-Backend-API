@@ -5,7 +5,7 @@ var async = require('async');
 
 /**
  * This function comment is parsed by doctrine
- * @group body - Operations about body
+ * @group Client - Client related API
  * @route GET /body
  * @param {string} lang.query.notrequired - User's Language - eg: 'en'
  * @returns {object} 200
